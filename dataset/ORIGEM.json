@@ -1,0 +1,36 @@
+{
+	"name": "ORIGEM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ORIGEM",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"nome_arquivo": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().nome_arquivo",
+					"type": "Expression"
+				},
+				"container": "origemrm558310"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id_Pesquisa;Data_Pesquisa;Satisfacao_Atual;Equilibrio_Vida_Trabalho;Saude_Mental_Status",
+				"type": "String"
+			}
+		]
+	}
+}
