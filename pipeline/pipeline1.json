@@ -1,0 +1,320 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "pesquisa_trabalho_futuro",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Id_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Data_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Data_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Satisfacao_Atual",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Satisfacao_Atual",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Equilibrio_Vida_Trabalho",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Equilibrio_Vida_Trabalho",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Saude_Mental_Status",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Saude_Mental_Status",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ORIGEM",
+						"type": "DatasetReference",
+						"parameters": {
+							"nome_arquivo": "pesquisa_trabalho_futuro.csv"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ORIGEM",
+						"type": "DatasetReference",
+						"parameters": {
+							"nome_arquivo": "pesquisa_trabalho_futuro.csv"
+						}
+					}
+				]
+			},
+			{
+				"name": "trabalho_futuro_caracteristicas",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Id_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Id_Pesquisa",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Estado",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cidade",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cidade",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Genero",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Genero",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Idade",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Idade",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Profissao",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Profissao",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ORIGEM",
+						"type": "DatasetReference",
+						"parameters": {
+							"nome_arquivo": "trabalho_futuro_caracteristicas.csv"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ORIGEM",
+						"type": "DatasetReference",
+						"parameters": {
+							"nome_arquivo": "trabalho_futuro_caracteristicas.csv"
+						}
+					}
+				]
+			},
+			{
+				"name": "dataflow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "trabalho_futuro_caracteristicas",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pesquisa_trabalho_futuro",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflow1",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"trabalhofuturocaracteristicas": {
+								"nome_arquivo": "trabalho_futuro_caracteristicas.csv"
+							},
+							"pesquisatrabalhofuturo": {
+								"nome_arquivo": "pesquisa_trabalho_futuro.csv"
+							},
+							"Destino": {
+								"nome_arquivo": "CsvFinal.csv"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": []
+	}
+}

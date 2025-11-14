@@ -1,5 +1,5 @@
 {
-	"name": "ORIGEM",
+	"name": "DESTINO",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ORIGEM",
@@ -19,18 +19,13 @@
 					"value": "@dataset().nome_arquivo",
 					"type": "Expression"
 				},
-				"container": "origemrm558310"
+				"container": "destinorm558310"
 			},
 			"columnDelimiter": ";",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "Id_Pesquisa;Data_Pesquisa;Satisfacao_Atual;Equilibrio_Vida_Trabalho;Saude_Mental_Status",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
